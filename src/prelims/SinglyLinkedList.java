@@ -14,11 +14,7 @@ public class SinglyLinkedList<T> {
     }
 
     public void traverseLinkedList(SinglyLinkedListNode<Object> head) {
-        SinglyLinkedListNode<T> currentNode = head;
 
-        while (currentNode != null) {
-            System.out.println(currentNode.getData());
-            currentNode = currentNode.getNext();
-        }
+
     }
 }

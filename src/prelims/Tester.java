@@ -12,7 +12,35 @@ public class Tester {
         System.exit(0);
     }
 
-    public void run() {
+    public void run() throws ListOverflowException {
+
+        // Fixed Array
+//        MyFixedSizeArrayList<String> stringList = new MyFixedSizeArrayList<>();
+//
+//        stringList.insert("Jaron");
+//        stringList.insert("Karl");
+//        stringList.insert("Christian");
+//        stringList.insert("Drent");
+//        stringList.insert("Crane");
+//        System.out.println(stringList);
+//        System.out.println(stringList.getSize());
+////        System.out.println(stringList.getElement("Alvin"));
+//        System.out.println(stringList.search("Drent"));
+//        stringList.delete("Drent");
+//        System.out.println(stringList);
+//        System.out.println(stringList.getSize());
+
+        // Growing Array
+//        MyGrowingArrayList<Integer> intList = new MyGrowingArrayList<>();
+//        intList.insert(1);
+//        intList.insert(2);
+//        intList.insert(3);
+//        intList.insert(4);
+//        intList.insert(5);
+//        System.out.println(intList.getSize());
+//        intList.insert(6);
+//        System.out.println(intList);
+//        System.out.println(intList.getSize());
 
     }
 }

@@ -5,14 +5,16 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class MyFixedSizeArrayList<E> implements MyList<E> {
-    private int size = 0;
-    private static final int MAX_CAPACITY = 5;
-    private final E[] elements;
+public class MyGrowingArrayList<E> implements MyList<E> {
+    protected int size = 0;
+    private static final int Initial_Capacity = 5;
+    private E[] elements;
+    private E[] temp;
 
     @SuppressWarnings("unchecked")
-    public MyFixedSizeArrayList() {
-        elements = (E[]) new Object[MAX_CAPACITY];
+    public MyGrowingArrayList() {
+        elements = (E[]) new Object[Initial_Capacity];
+        temp = (E[]) new Object[elements.length];
     }
     @Override
     public int getSize() {
@@ -20,9 +22,9 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
     }
 
     @Override
-    public void insert(E data) throws ListOverflowException {
+    public void insert(E data) {
         if (size == elements.length) {
-            throw new ListOverflowException("Max Size of the List is 5");
+            growList();
         }
         elements[size++] = data;
     }
@@ -61,6 +63,20 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
         return -1;
     }
 
+    @SuppressWarnings("unchecked")
+    public void growList() {
+        // Store the values
+        for (int i = 0; i < elements.length; i++) {
+            temp[i] = elements[i];
+        }
+
+        elements = (E[]) new Object[Initial_Capacity * 2];
+
+        for (int i = 0; i < temp.length; i++) {
+            elements[i] = temp[i];
+        }
+    }
+
     @Override
     public String toString() {
         return "List: " + Arrays.stream(elements)
@@ -69,6 +85,3 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
                 .collect(Collectors.joining(", "));
     }
 }
-
-// REFERENCE
-// https://howtodoinjava.com/data-structure/list-implementation-example-in-java/
