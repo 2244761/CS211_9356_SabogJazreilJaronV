@@ -42,5 +42,13 @@ public class Tester {
 //        System.out.println(intList);
 //        System.out.println(intList.getSize());
 
+        // SinglyLinkedList
+        MySinglyLinkedList<String> FruitList = new MySinglyLinkedList<>();
+        FruitList.addNode("Banana");
+        FruitList.addNode("Apple");
+        FruitList.addNode("Watermelon");
+        FruitList.addNode("Pineapple");
+
+        FruitList.displayList();
     }
 }

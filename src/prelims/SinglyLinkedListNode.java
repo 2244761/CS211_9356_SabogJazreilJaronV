@@ -30,8 +30,9 @@ public class SinglyLinkedListNode<T> {
      * Constructor that sets the data of the Node
      * @param data data that will be assigned to the node
      */
-    public SinglyLinkedListNode(T data) {
+    public SinglyLinkedListNode(T data, SinglyLinkedListNode<T> next) {
         this.data = data;
+        this.next = next;
     }
 
     /**
