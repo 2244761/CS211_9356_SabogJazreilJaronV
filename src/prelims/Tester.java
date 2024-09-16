@@ -44,10 +44,11 @@ public class Tester {
 
         // SinglyLinkedList
         MySinglyLinkedList<String> FruitList = new MySinglyLinkedList<>();
-        FruitList.addNode("Banana");
-        FruitList.addNode("Apple");
-        FruitList.addNode("Watermelon");
-        FruitList.addNode("Pineapple");
+        FruitList.insertNode("Banana");
+        FruitList.insertNode("Apple");
+        FruitList.insertNode("Watermelon");
+        FruitList.insertNode("Pineapple");
+        FruitList.insertNode("Coconut");
 
         FruitList.displayList();
     }

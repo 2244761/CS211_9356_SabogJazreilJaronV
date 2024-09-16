@@ -7,7 +7,7 @@ public class MySinglyLinkedList<T> extends SinglyLinkedListNode<T> {
 
     }
 
-    public void addNode(T data) {
+    public void insertNode(T data) {
         SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<>(data, null);
         SinglyLinkedListNode<T> currentNode = head;
 
@@ -18,12 +18,16 @@ public class MySinglyLinkedList<T> extends SinglyLinkedListNode<T> {
             if (newNode.getData().toString().compareTo(currentNode.getData().toString()) < 0) {
                 newNode.setNext(head);
                 head = newNode;
-            } else if (currentNode.getNext() != null &&
-                    newNode.getData().toString().compareTo(currentNode.getNext().getData().toString()) < 0) {
+            } else {
+                while (currentNode.getNext() != null &&
+                newNode.getData().toString().compareTo(currentNode.getNext().getData().toString()) > 0) {
+                    currentNode = currentNode.getNext();
+                } // end of while
+                newNode.setNext(currentNode.getNext());
                 currentNode.setNext(newNode);
-            }
-        }
-    }
+            } // end of second if else statement
+        } // end of first if else statement
+    } // end of method
 
     public void displayList() {
         SinglyLinkedListNode<T> currentNode = head;
