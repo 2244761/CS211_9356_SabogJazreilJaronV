@@ -1,15 +1,15 @@
 package prelims;
 
-public class MySinglyLinkedList<T> extends SinglyLinkedListNode<T> {
+public class MySinglyLinkedCircularList<T> {
     private SinglyLinkedListNode<T> head;
     private SinglyLinkedListNode<T> tail;
 
-    public MySinglyLinkedList() {
+    public MySinglyLinkedCircularList() {
         head = null;
         tail = null;
     }
 
-    public MySinglyLinkedList(SinglyLinkedListNode<T> head, SinglyLinkedListNode<T> tail) {
+    public MySinglyLinkedCircularList(SinglyLinkedListNode<T> head, SinglyLinkedListNode<T> tail) {
         this.head = head;
         this.tail = tail;
     }
@@ -24,26 +24,30 @@ public class MySinglyLinkedList<T> extends SinglyLinkedListNode<T> {
 
     public void insertStart(T data) {
         SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<>(data, null);
-        SinglyLinkedListNode<T> currentNode = head;
+        newNode.setNext(head);
 
-        if (currentNode != null) {
-            newNode.setNext(currentNode);
+        if (head == null) {
+            head = newNode;
+            newNode.setNext(head);
+            tail = head;
+        } else {
+            tail.setNext(newNode);
+            head = newNode;
         }
-        head = newNode;
-
-        if (tail == null) tail = newNode;
     }
 
     public void insertEnd(T data) {
         SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<>(data, null);
-        SinglyLinkedListNode<T> currentNode = tail;
+        newNode.setNext(head);
 
-        if (currentNode != null) {
-            currentNode.setNext(newNode);
+        if (head == null) {
+            head = newNode;
+            newNode.setNext(head);
+            tail = head;
+        } else {
+            tail.setNext(newNode);
+            tail = newNode;
         }
-        tail = newNode;
-
-        if (head == null) head = newNode;
     }
 
     public void removeStart() {

@@ -44,12 +44,22 @@ public class Tester {
 
         // SinglyLinkedList
         MySinglyLinkedList<String> FruitList = new MySinglyLinkedList<>();
-        FruitList.insertNode("Banana");
-        FruitList.insertNode("Apple");
-        FruitList.insertNode("Watermelon");
-        FruitList.insertNode("Pineapple");
-        FruitList.insertNode("Coconut");
+        FruitList.insertStart("Banana");
+        FruitList.insertStart("Apple");
+        FruitList.insertStart("Watermelon");
+        FruitList.insertStart("Pineapple");
+        FruitList.insertStart("Coconut");
+        FruitList.removeByData("Banana");
 
-        FruitList.displayList();
+        System.out.println(FruitList.toString());
+
+//        MyDoublyLinkedList<String> nameList = new MyDoublyLinkedList<>();
+//        nameList.insertEnd("Dalos");
+//        nameList.insertEnd("Miguel");
+//        nameList.insertEnd("Dale");
+//        nameList.insertEnd("Sugar");
+//        nameList.insertEnd("Spice");
+//        nameList.removeByData("Spice");
+//        nameList.displayList();
     }
 }

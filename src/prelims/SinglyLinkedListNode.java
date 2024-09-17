@@ -66,4 +66,8 @@ public class SinglyLinkedListNode<T> {
     public void setNext(SinglyLinkedListNode<T> next) {
         this.next = next;
     }
+
+    public boolean equals(SinglyLinkedListNode<T> otherNode) {
+        return this == otherNode;
+    }
 }
