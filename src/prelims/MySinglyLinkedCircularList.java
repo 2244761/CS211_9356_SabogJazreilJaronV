@@ -157,7 +157,7 @@ public class MySinglyLinkedCircularList<T> {
         String result = "[" + head.getData();
         SinglyLinkedListNode<T> currentNode = head.getNext().getNext();
 
-        while (currentNode != tail.getNext()) {
+        while (currentNode != head.getNext()) {
             result += ", " + currentNode.getData();
             currentNode = currentNode.getNext();
         }
