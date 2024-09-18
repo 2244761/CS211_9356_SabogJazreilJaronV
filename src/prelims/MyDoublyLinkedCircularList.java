@@ -176,9 +176,9 @@ public class MyDoublyLinkedCircularList<T> extends DoublyLinkedListNode<T>{
     public String toString() {
         if (head == null) return "List is Empty";
         String result = "[" + head.getData();
-        DoublyLinkedListNode<T> currentNode = head.getNext();
+        DoublyLinkedListNode<T> currentNode = head.getNext().getNext();
 
-        while (currentNode != null) {
+        while (currentNode != tail.getNext()) {
             result += ", " + currentNode.getData();
             currentNode = currentNode.getNext();
         }

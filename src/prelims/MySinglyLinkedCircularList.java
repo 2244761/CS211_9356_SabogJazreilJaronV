@@ -155,9 +155,9 @@ public class MySinglyLinkedCircularList<T> {
     public String toString() {
         if (head == null) return "List is Empty";
         String result = "[" + head.getData();
-        SinglyLinkedListNode<T> currentNode = head.getNext();
+        SinglyLinkedListNode<T> currentNode = head.getNext().getNext();
 
-        while (currentNode != null) {
+        while (currentNode != tail.getNext()) {
             result += ", " + currentNode.getData();
             currentNode = currentNode.getNext();
         }
