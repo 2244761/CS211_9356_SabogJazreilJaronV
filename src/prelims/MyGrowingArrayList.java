@@ -1,10 +1,10 @@
 package prelims;
 
-/**
- * Name: Sabog, Jazreil Jaron V.
- * Date: September 18, 2024
- * Class Code: 9356B CS 211L
- * Individual Prelim Project
+/*
+  Name: Sabog, Jazreil Jaron V.
+  Date: September 18, 2024
+  Class Code: 9356B CS 211L
+  Individual Prelim Project
  */
 
 import java.util.Arrays;
