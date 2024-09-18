@@ -82,10 +82,10 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
     public boolean delete(E data) {
         for (int i = 0; i < size; i++) {
             if (elements[i].equals(data)) {
-                for (int j = i; j < size - 1; j++) {
+                for (int j = i; j < size - 2; j++) {
                     elements[j] = elements[j + 1];
-                    elements[size - 1] = null;
                 }
+                elements[size - 1] = null;
                 size--;
                 return true;
             }
