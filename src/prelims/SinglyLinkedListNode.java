@@ -29,6 +29,7 @@ public class SinglyLinkedListNode<T> {
     /**
      * Constructor that sets the data of the Node
      * @param data data that will be assigned to the node
+     * @param next node that will be assigned to the next code
      */
     public SinglyLinkedListNode(T data, SinglyLinkedListNode<T> next) {
         this.data = data;
@@ -67,6 +68,11 @@ public class SinglyLinkedListNode<T> {
         this.next = next;
     }
 
+    /**
+     * Compares this singly linked node to another node for equality
+     * @param otherNode the other node to compare
+     * @return true if this node is the same object as the other node, false otherwise
+     */
     public boolean equals(SinglyLinkedListNode<T> otherNode) {
         return this == otherNode;
     }
