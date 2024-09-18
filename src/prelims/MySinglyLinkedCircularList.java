@@ -64,7 +64,6 @@ public class MySinglyLinkedCircularList<T> {
 
         if (head == null) {
             head = newNode;
-            newNode.setNext(head);
             tail = head;
         } else {
             tail.setNext(newNode);
@@ -82,7 +81,6 @@ public class MySinglyLinkedCircularList<T> {
 
         if (head == null) {
             head = newNode;
-            newNode.setNext(head);
             tail = head;
         } else {
             tail.setNext(newNode);
@@ -101,7 +99,7 @@ public class MySinglyLinkedCircularList<T> {
 
         head = nodeToRemove.getNext();
 
-        if (nodeToRemove == tail) removeEnd();
+        if (nodeToRemove == tail) tail = null;
     }
 
     /**
@@ -112,32 +110,32 @@ public class MySinglyLinkedCircularList<T> {
         SinglyLinkedListNode<T> nodeToRemove = tail;
 
         if (nodeToRemove == null) throw new NoSuchElementException("The List is empty");
+        tail = head;
 
-        tail.setNext(null);
+        while (tail.getNext() != nodeToRemove) tail = tail.getNext();
+        tail.setNext(head);
 
-        if (nodeToRemove == head) removeStart();
     }
 
     /**
      * Removes the first occurrence that matches the given data from the list
      * @param data the data to be removed
+     * @throws NoSuchElementException if the list is empty
      */
     public void removeByData(T data) {
+        if (head == null) throw new NoSuchElementException("The List is empty");
         SinglyLinkedListNode<T> nodeToRemove = null;
         SinglyLinkedListNode<T> currentNode = head;
 
-        while (currentNode != null) {
+        do {
             if (currentNode.getData().equals(data)) {
-                if (nodeToRemove == null) {
-                    head = currentNode.getNext();
-                } else  {
-                    nodeToRemove.setNext(currentNode.getNext());
-                }
+                if (nodeToRemove == null) head = currentNode.getNext();
+                else nodeToRemove.setNext(currentNode.getNext());
                 break;
             }
             nodeToRemove = currentNode;
             currentNode = currentNode.getNext();
-        }
+        } while (currentNode != head);
     }
 
     /**
@@ -154,14 +152,15 @@ public class MySinglyLinkedCircularList<T> {
     @Override
     public String toString() {
         if (head == null) return "List is Empty";
-        String result = "[" + head.getData();
-        SinglyLinkedListNode<T> currentNode = head.getNext().getNext();
+        StringBuilder result = new StringBuilder("[");
+        SinglyLinkedListNode<T> currentNode = head;
 
-        while (currentNode != head.getNext()) {
-            result += ", " + currentNode.getData();
+        do {
+            result.append(currentNode.getData()).append(",");
             currentNode = currentNode.getNext();
-        }
-        result += "]";
-        return result;
+        } while (currentNode != head);
+
+        result.append("]");
+        return result.toString();
     }
 }

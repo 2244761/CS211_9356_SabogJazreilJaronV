@@ -13,53 +13,97 @@ public class Tester {
     }
 
     public void run() throws ListOverflowException {
+        System.out.println("=========================");
+        System.out.println("MyFixedSizeArrayList Demo");
+        System.out.println("=========================");
+        FixedArrayDemo();
 
-        // Fixed Array
-//        MyFixedSizeArrayList<String> stringList = new MyFixedSizeArrayList<>();
-//
-//        stringList.insert("Jaron");
-//        stringList.insert("Karl");
-//        stringList.insert("Christian");
-//        stringList.insert("Drent");
-//        stringList.insert("Crane");
-//        System.out.println(stringList);
-//        System.out.println(stringList.getSize());
-////        System.out.println(stringList.getElement("Alvin"));
-//        System.out.println(stringList.search("Drent"));
-//        stringList.delete("Drent");
-//        System.out.println(stringList);
-//        System.out.println(stringList.getSize());
+        System.out.println("=========================");
+        System.out.println("MyGrowingArrayList Demo");
+        System.out.println("=========================");
+        GrowingArrayDemo();
 
-        // Growing Array
-//        MyGrowingArrayList<Integer> intList = new MyGrowingArrayList<>();
-//        intList.insert(1);
-//        intList.insert(2);
-//        intList.insert(3);
-//        intList.insert(4);
-//        intList.insert(5);
-//        System.out.println(intList.getSize());
-//        intList.insert(6);
-//        System.out.println(intList);
-//        System.out.println(intList.getSize());
+        System.out.println("=========================");
+        System.out.println("MySinglyLinkedList Demo");
+        System.out.println("=========================");
+        SinglyListDemo();
 
-        // SinglyLinkedList
-        MySinglyLinkedList<String> FruitList = new MySinglyLinkedList<>();
-        FruitList.insertStart("Banana");
-        FruitList.insertStart("Apple");
-        FruitList.insertStart("Watermelon");
-        FruitList.insertStart("Pineapple");
-        FruitList.insertStart("Coconut");
-        FruitList.removeByData("Banana");
+        System.out.println("=========================");
+        System.out.println("MyDoublyLinkedList Demo");
+        System.out.println("=========================");
+        DoublyListDemo();
 
-        System.out.println(FruitList.toString());
+        System.out.println("=========================");
+        System.out.println("MySinglyLinkedCircularList Demo");
+        System.out.println("=========================");
+        CircularSinglyListDemo();
+    }
 
-//        MyDoublyLinkedList<String> nameList = new MyDoublyLinkedList<>();
-//        nameList.insertEnd("Dalos");
-//        nameList.insertEnd("Miguel");
-//        nameList.insertEnd("Dale");
-//        nameList.insertEnd("Sugar");
-//        nameList.insertEnd("Spice");
-//        nameList.removeByData("Spice");
-//        nameList.displayList();
+    public void FixedArrayDemo() throws ListOverflowException {
+        MyFixedSizeArrayList<String> nameList = new MyFixedSizeArrayList<>();
+        nameList.insert("Jazreil");
+        nameList.insert("Jaron");
+        nameList.insert("Sabog");
+        System.out.println(nameList.toString());
+        nameList.delete("Sabog");
+        System.out.println(nameList.toString());
+        if (nameList.search("Jaron") == 1) System.out.println("Item found.");
+        System.out.println("Size of the list is " + nameList.getSize());
+        System.out.println(nameList.getElement("Jazreil"));
+        System.out.println();
+    }
+
+    public void GrowingArrayDemo() throws ListOverflowException {
+        MyGrowingArrayList<String> nameList = new MyGrowingArrayList<>();
+        nameList.insert("Jazreil");
+        nameList.insert("Jaron");
+        nameList.insert("Valdez");
+        nameList.insert("Sabog");
+        nameList.insert("BSCS");
+        System.out.println(nameList.toString());
+        System.out.println("Size of the list is " + nameList.getSize());
+        nameList.insert("Data Structures");
+        System.out.println(nameList.toString());
+        System.out.println("Size of the list is " + nameList.getSize());
+        System.out.println();
+    }
+
+    public void SinglyListDemo() {
+        MySinglyLinkedList<String> nameList = new MySinglyLinkedList<>();
+        nameList.insertStart("Jazreil");
+        nameList.insertEnd("Jaron");
+        nameList.insertEnd("Sabog");
+        System.out.println(nameList.toString());
+        nameList.removeByData("Sabog");
+        System.out.println(nameList.toString());
+        System.out.println(nameList.isEmpty());
+        System.out.println();
+    }
+
+    public void DoublyListDemo() {
+        MyDoublyLinkedList<String> nameList = new MyDoublyLinkedList<>();
+        nameList.insertStart("Jazreil");
+        nameList.insertEnd("Jaron");
+        nameList.insertEnd("Sabog");
+        System.out.println(nameList.getHead());
+        System.out.println(nameList.getTail());
+        nameList.removeEnd();
+        nameList.removeStart();
+        System.out.println(nameList.toString());
+        System.out.println(nameList.getHead());
+        System.out.println(nameList.getTail());
+        System.out.println();
+    }
+
+    public void CircularSinglyListDemo() {
+        MySinglyLinkedCircularList<String> nameList = new MySinglyLinkedCircularList<>();
+        nameList.insertStart("Mr");
+        nameList.insertStart("Jazreil");
+        nameList.insertStart("Jaron");
+        nameList.insertStart("Sabog");
+        System.out.println(nameList.toString());
+        nameList.removeByData("Mr");
+        System.out.println(nameList.toString());
+        System.out.println();
     }
 }
